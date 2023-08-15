@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--TOKEN API GIT HUB :  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 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+
+<body id="body">
+    <audio id="mon-audio" >
+        <source src="dangerAudio.mp3" type="audio/mpeg">
+      </audio>
+    <div id="container">
+        <div class="container-div">
+            <h1 class="titre">Test - Tech</h1>
+            <nav>
+                <li class="nav-li"><a href="#">Mission</a></li>
+                <li class="nav-li"><a href="#">Les Plus+</a></li>
+                <li class="nav-li"><a href="#">Les Moins-</a></li>
+            </nav>
+
+            <div class="div-btn">
+                <!-- au click masque le titre et le btn masquer et affiche le btn afficher -->
+                <button class="btn-masquer">click</button>
+                <button class="btn-afficher"><img src="danger.png" alt=""></button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        #container {
+            border: 2px solid rgb(201, 40, 40);
+            width: 600px;
+            height: auto !important;
+            background-color: antiquewhite;
+            font-size: 20px;
+            margin: 100px auto;
+            padding: 65px;
+            transition: 0.8s all ease;
+            text-align: center;
+        }
+
+        .container-div {
+            border: 2px solid black;
+            background-color: #b42c2c;
+            font-size: 20px;
+            width: 400px;
+            height: auto;
+            transition: 1s;
+            margin: 50px auto;
+            /*animation: changeColor 2s  infinite;
+            transform: rotate(0deg);*/
+        }
+        .container-div1 {
+            border: 2px solid black;
+            background-color: #b42c2c;
+            font-size: 20px;
+            width: 400px;
+            height: auto;
+            transition: 1s;
+            margin: 50px auto;
+            animation: changeColor 0.5s  infinite;
+            transform: rotate(0deg);
+        }
+        @keyframes changeColor {
+           /* 0% { background-color: white; }
+            10% { background-color: antiquewhite; }
+            20% { background-color: rgb(249, 145, 10); }
+            40% { background-color: rgb(19, 156, 231); }
+            50% { background-color: rgb(19, 231, 58); }
+            70% { background-color: rgb(254, 246, 6); }
+            100% { background-color: rgb(238, 21, 151); transform: rotate(360deg);}*/
+            from { background-color:black; } to { background-color:red; }
+        }
+        .container-div:hover{
+            background-color: rgb(249, 249, 249);
+            
+        }
+
+        nav {
+            display: flex;
+            border: 2px solid black;
+            width: 100%;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        nav li{
+            list-style-type: none;
+            margin: 5px 20px;
+            text-transform: lowercase;
+        }
+        nav li a{
+            text-decoration: none;
+            color: rgb(44, 24, 37);
+        }
+        nav li a:hover{
+            text-decoration: none;
+            color: antiquewhite;
+            background-color: black;
+            opacity: 10px;
+        }
+
+        .div-btn {
+            display: flex;
+            border: 2px solid black;
+            width: auto;
+            height: 100px;
+            align-items: center;
+            justify-content: center;
+            transition: 0.8s;
+        }
+
+        .div-btn button {
+            margin: 10px;
+            max-width: 150px;
+            transition: 0.5s;
+        }
+
+        .div-btn button:hover {
+            color: white !important;
+            background-color: black;
+        }
+
+        .btn-masquer {
+            border-radius: 10px;
+            width: auto;
+            height: 45px;
+        }
+
+        .btn-afficher {
+            border-radius: 10px;
+            width: 70px;
+            height: 70px;
+        }
+
+        .btn-afficher {
+            /*visibility: hidden;*/
+            display: none;
+        }
+        .btn-afficher img{
+            width: 100%;
+        }
+
+        /*.btn-masquer{
+
+        }*/
+
+        .body-apparution {
+            opacity: 0;
+            /* L'élément est invisible au départ */
+            transition: opacity 0.5s ease;
+            /* Ajoutez une transition à l'opacité */
+        }
+    </style>
+
+    <script>
+        let body = document.querySelector("#body");
+        let div = document.querySelector(".container-div");
+        //au click du bouton masqué, masque le titre et le btn masquer et affiche le btn affiché qui etait masqué
+        let btn_masquer = document.querySelector('.btn-masquer');
+        let btn_afficher = document.querySelector('.btn-afficher');
+        let title = document.querySelector('.titre');
+
+        let monAudio = document.getElementById("mon-audio");
+
+
+        btn_masquer.addEventListener('click', () => {
+            title.style.display = "none";
+            btn_masquer.style.display = "none";
+            btn_afficher.style.display = "inline-block";
+            div.classList.remove("container-div");
+            div.classList.add("container-div1");
+            body.style.backgroundColor = "red";
+            monAudio.play();
+        });
+
+        btn_afficher.addEventListener('click', () => {
+            title.style.display = "block";
+            btn_masquer.style.display = "inline-block";
+            btn_afficher.style.display = "none";
+            div.classList.add("container-div");
+            div.classList.remove("container-div1");
+            monAudio.pause();
+        });
+
+    </script>
+</body>
+
+</html>
